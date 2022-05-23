@@ -1,66 +1,28 @@
 package Module;
 
 
-public class User {
-    public User() {
+import java.util.ArrayList;
 
+
+public class User extends Staff{
+    DataControlPage dataControlPage=new DataControlPage();
+
+
+    public User(String name, String id, String password){
+       super(id,password,name);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getCity() {
-        return city;
+    public ArrayList<Booking> myBooking(String id) {
+        return dataControlPage.myBooking(id);
     }
 
 
-    private String name;
-    private String id;
-    private String password;
-    private String mobile;
-    private String city;
-    public User(String n, String i, String p, String m, String c){
-        this.name=n;
-        this.id=i;
-        this.password=p;
-        this.mobile=m;
-        this.city=c;
+    public ArrayList<Theater> getTheaterList(String cityName) {
+        return dataControlPage.getTheaterList(cityName);
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", password='" + password + '\'' +
-                ", mobile='" + mobile + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+    public double cancelMyTicket(String userId, String ticketId)
+    {
+        return dataControlPage.cancelMyTicket(userId,ticketId);
     }
-
 }
